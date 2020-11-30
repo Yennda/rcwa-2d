@@ -28,8 +28,8 @@ n_3=1.33; % substrate
 mu=1;
 %---------------------------------------------------
 use_dispersion=1; % 1-yes, 2-no, see file setup_dispersion.m setup_dispersion.m
-lambda=1; % [um]
-theta0=64; % incident angle [degree], if theta=0 -> theta0+1E-10
+lambda=0.655; % [um]
+theta0=70; % incident angle [degree], if theta=0 -> theta0+1E-10
 phi0=0; % conical angle [degree]
 psi0=0;  % polarization angle [degree], 0-TM polarization, 90-TE polarization
 
@@ -90,8 +90,8 @@ switch measurement
         maximum_N_X_N_Y=30; % max. 20 (it takes 8 GB)
         step=6;
     case 2 
-        minimum_wavelength=0.7; % [um]
-        maximum_wavelength=0.8; % [um]
+        minimum_wavelength=0.6; % [um]
+        maximum_wavelength=0.7; % [um]
         step=0.005;   
     case 3 % 
         minimum_thickness=0.4; % [um]

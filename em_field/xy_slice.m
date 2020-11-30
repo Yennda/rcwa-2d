@@ -7,7 +7,7 @@ correct_calculation=1; % 1-yes, 2-no, only for 1-E_x, 2-E_y
 
 % plot_field_component=7 -> E_x, plot_field_component=8 -> E_y
 
-xy_slice_coordinate_z=-10;
+xy_slice_coordinate_z=-0.20;
 resolution_x=300;
 resolution_y=300;
 
