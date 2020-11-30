@@ -31,7 +31,7 @@ use_dispersion=1; % 1-yes, 2-no, see file setup_dispersion.m setup_dispersion.m
 lambda=0.745; % [um]
 theta0=64; % incident angle [degree], if theta=0 -> theta0+1E-10
 phi0=0; % conical angle [degree]
-psi0=0;  % polarization angle [degree], 0-TM polarization, 90-TE polarization
+psi0=90;  % polarization angle [degree], 0-TM polarization, 90-TE polarization
 
 calculate_field=1; % 1-yes, 2-no, !! field is calculated for the polarization angle psi0
 view_field_slice=2; % xy_slice, xz_slice, yz_slice
@@ -49,7 +49,7 @@ grating=0;
 switch grating
     case 0
         setup_dispersion;
-        open_grating_file='flat_gold_cube.m';
+        open_grating_file='flat_gold.m';
         optimalization_grating_0=1; % 1-yes, 2-no
     case 1 % eliptic cylinder, rectangular grating
         number_of_layers=1;

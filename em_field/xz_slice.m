@@ -10,9 +10,16 @@ xz_slice_coordinate_y=0.55;
 resolution_x=500;
 resolution_z=500;
 
-x_point_b=0.1;
-x_point_e=0.45;
+x_point_b=coordinate_x_1(1);
+x_point_e=coordinate_x_1(end);
 
+% z_point_b=0;
+% z_point_e=a;
+
+
+% x_point_b=0.1;
+% x_point_e=0.45;
+% 
 z_point_b=-0.8;
 z_point_e=1.2;
 
