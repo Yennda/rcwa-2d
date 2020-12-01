@@ -17,12 +17,12 @@ addpath('mex_files');
 addpath('em_field');
 
 %---------------------------------------------------
-N_X=10; % N_X=20 takes approx. 8 GB of memory
+N_X=15; % N_X=20 takes approx. 8 GB of memory
 N_Y=N_X;
 use_fftw=2;
 %---------------------------------------------------
-Lambda_x=1; %  [um] only for grating=1 and 2
-Lambda_y=Lambda_x; %  [um] only for grating=1 and 2
+% Lambda_x=1; %  [um] only for grating=1 and 2
+% Lambda_y=Lambda_x; %  [um] only for grating=1 and 2
 n_1=1.55; % superstrate
 n_3=1.33; % substrate
 mu=1;
@@ -31,10 +31,11 @@ use_dispersion=1; % 1-yes, 2-no, see file setup_dispersion.m setup_dispersion.m
 lambda=0.655; % [um]
 theta0=70; % incident angle [degree], if theta=0 -> theta0+1E-10
 phi0=0; % conical angle [degree]
-psi0=90;  % polarization angle [degree], 0-TM polarization, 90-TE polarization
+psi0=0;  % polarization angle [degree], 0-TM polarization, 90-TE polarization
 
 calculate_field=1; % 1-yes, 2-no, !! field is calculated for the polarization angle psi0
 view_field_slice=2; % xy_slice, xz_slice, yz_slice
+a = 10;
 % open xy_slice.m or xz_slice.m or yz_slice.m
 
 % switch grating

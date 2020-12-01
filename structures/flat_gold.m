@@ -3,8 +3,8 @@ number_of_layers=1;
 l=1; % layer 1
 thickness(l)=0.05;
 
-coordinate_x_1 = [0,1];
-coordinate_y_1 = [0,1];
+coordinate_x_1 = [0,10];
+coordinate_y_1 = [0,10];
 
 r_index_1 = [gold];
 

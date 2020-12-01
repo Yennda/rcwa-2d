@@ -17,8 +17,10 @@ addpath('mex_files');
 addpath('em_field');
 
 %---------------------------------------------------
-N_X=30; % N_X=20 takes approx. 8 GB of memory
+N_X=10; % N_X=20 takes approx. 8 GB of memory
 N_Y=N_X;
+symmetry = 1;
+symmetry_switch = 3;
 use_fftw=2;
 %---------------------------------------------------
 Lambda_x=1; %  [um] only for grating=1 and 2
@@ -53,7 +55,7 @@ grating=0;
 switch grating
     case 0
         setup_dispersion;
-        open_grating_file='flat_gold_cube.m';
+        open_grating_file='flat_gold_sphere.m';
         optimalization_grating_0=1; % 1-yes, 2-no
     case 1 % eliptic cylinder, rectangular grating
         number_of_layers=1;
