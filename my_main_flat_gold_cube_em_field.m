@@ -17,7 +17,7 @@ addpath('mex_files');
 addpath('em_field');
 
 %---------------------------------------------------
-N_X=10; % N_X=20 takes approx. 8 GB of memory
+N_X=30; % N_X=20 takes approx. 8 GB of memory
 N_Y=N_X;
 use_fftw=2;
 %---------------------------------------------------
@@ -28,8 +28,12 @@ n_3=1.33; % substrate
 mu=1;
 %---------------------------------------------------
 use_dispersion=1; % 1-yes, 2-no, see file setup_dispersion.m setup_dispersion.m
-lambda=0.765; % [um]
+lambda=0.655; % [um]
 theta0=70; % incident angle [degree], if theta=0 -> theta0+1E-10
+
+% lambda=0.765; % [um]
+% theta0=70; % incident angle [degree], if theta=0 -> theta0+1E-10
+
 phi0=0; % conical angle [degree]
 psi0=0;  % polarization angle [degree], 0-TM polarization, 90-TE polarization
 

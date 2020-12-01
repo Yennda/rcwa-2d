@@ -1,13 +1,13 @@
 % xy_slice
 
-plot_field_component=2; % 1-E_x, 2-E_y, 3-E_z, 4-H_x, 5-H_y, 6-H_z
+plot_field_component=5; % 1-E_x, 2-E_y, 3-E_z, 4-H_x, 5-H_y, 6-H_z
 field_function=0; % 1-abs, 2-angle, 3-real, 4-imag
 set_grating_framework=2; % 1-yes, 2-no
 correct_calculation=1; % 1-yes, 2-no, only for 1-E_x, 2-E_y
 
 % plot_field_component=7 -> E_x, plot_field_component=8 -> E_y
 
-xy_slice_coordinate_z=-0.20;
+xy_slice_coordinate_z=-1;
 resolution_x=300;
 resolution_y=300;
 

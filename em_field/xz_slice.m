@@ -20,8 +20,8 @@ x_point_e=coordinate_x_1(end);
 % x_point_b=0.1;
 % x_point_e=0.45;
 % 
-z_point_b=-0.8;
-z_point_e=1.2;
+z_point_b=-a/2;
+z_point_e=a/2;
 
 %-------------------------------------------------------------------------
 set_plot_field_component=plot_field_component;

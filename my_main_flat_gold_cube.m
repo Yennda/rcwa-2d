@@ -17,7 +17,7 @@ addpath('mex_files');
 addpath('em_field');
 
 %---------------------------------------------------
-N_X=10; % N_X=20 takes approx. 8 GB of memory
+N_X=20; % N_X=20 takes approx. 8 GB of memory
 N_Y=N_X;
 use_fftw=2;
 %---------------------------------------------------
