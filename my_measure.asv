@@ -1,0 +1,10 @@
+
+lambdas = [600:10:700]
+
+for lambda = lambdas
+
+my_main_sphere_measurement;
+
+disp('min: ' + num2str(Ci))
+disp('max: ' + num2str(Cx))
+disp('FOM: ' + num2str(fom))

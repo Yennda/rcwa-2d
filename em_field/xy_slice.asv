@@ -88,6 +88,7 @@ hold on;
 grating_framework;
 end
 
-saveas(gcf,['saved_particles/NP' '_r_' num2str(r) '_h_' num2str(h) '_lm_' num2str(lambda) '_th_' num2str(theta0) '_N' num2str(N_X) '.png'])
+saveas(gcf,['saved_particles/NP', 
+    ,, num2str(r), '.png'])
 
 view([0 90])

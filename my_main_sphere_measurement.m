@@ -7,7 +7,7 @@
 % !!!! Matlab: mex filename.c, Octave: mkoctfile --mex filename.c
 % !!!! currently, there are mex-files for Linux 32/64-bit and Windows 32/64-bit
 
-clear all
+% clear all
 format long;
 time1=tic;
 addpath('lib');
@@ -30,8 +30,8 @@ n_3=1.33; % substrate
 mu=1;
 %---------------------------------------------------
 use_dispersion=1; % 1-yes, 2-no, see file setup_dispersion.m setup_dispersion.m
-lambda=0.655; % [um]
-theta0=70; % incident angle [degree], if theta=0 -> theta0+1E-10
+% lambda=0.655; % [um]
+% theta0=70; % incident angle [degree], if theta=0 -> theta0+1E-10
 
 % lambda=0.765; % [um]
 % theta0=70; % incident angle [degree], if theta=0 -> theta0+1E-10
@@ -55,7 +55,7 @@ grating=0;
 switch grating
     case 0
         setup_dispersion;
-        open_grating_file='flat_gold_cube.m';
+        open_grating_file='flat_gold_sphere.m';
         optimalization_grating_0=1; % 1-yes, 2-no
     case 1 % eliptic cylinder, rectangular grating
         number_of_layers=1;
