@@ -28,9 +28,11 @@ thickness(l)=r;
 coordinate_x_3=[0, a/2-r/2, a/2+r/2, a];
 coordinate_y_3=[0, a/2-r/2, a/2+r/2, a];
 
-r_index_3=[w, w, w;
+r_index_3=[
+    w, w, w;
     w, gold, w;
-    w, w, w];
+    w, w, w
+    ];
 
 
 % l=3; % layer 3
