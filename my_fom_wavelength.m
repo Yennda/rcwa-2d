@@ -44,4 +44,11 @@ ylabel('I [a. u.]')
 title('FOM: wavelength')
 legend
 
-saveas(gcf,['saved_figures/FOM_wavelength.png'])
+saveas(gcf,['saved_figures/FOM_wavelength' '_r_' num2str(r*1e3) '_h_' num2str(h*1e3) '_N' num2str(N_X) '.png'])
+saveas(gcf,['saved_figures/FOM_wavelength' '_r_' num2str(r*1e3) '_h_' num2str(h*1e3) '_N' num2str(N_X) '.fig'])
+
+save('saved_data/fom.mat', 'fom');
+
+save('saved_data/CX.mat', 'CX');
+
+save('saved_data/CI.mat', 'CI');

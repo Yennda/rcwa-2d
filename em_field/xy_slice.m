@@ -87,7 +87,8 @@ if set_grating_framework==1
 hold on;
 grating_framework;
 end
-
-saveas(gcf,['saved_particles/NP' '_r_' num2str(r) '_h_' num2str(h) '_lm_' num2str(lambda) '_th_' num2str(theta0) '_N' num2str(N_X) '.png'])
+daspect([1 1 1])
+saveas(gcf,['saved_particles/NP' '_r_' num2str(r*1e3) '_h_' num2str(h*1e3) '_lm_' num2str(lambda*1e3) '_th_' num2str(theta0) '_N' num2str(N_X) '.png'])
+saveas(gcf,['saved_particles/NP' '_r_' num2str(r*1e3) '_h_' num2str(h*1e3) '_lm_' num2str(lambda*1e3) '_th_' num2str(theta0) '_N' num2str(N_X) '.fig'])
 
 view([0 90])
