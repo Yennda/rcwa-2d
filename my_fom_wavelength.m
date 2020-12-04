@@ -10,15 +10,23 @@ glass = 1.55;
 
 for ilm = 1:length(lambdas)
     disp(['wavelength ',num2str(lambdas(ilm)), '/', num2str(lambdas(end))])
+    clearvars -except ilm lambdas theta0 lambda nspp FOM CX CI betas thetas glass w
     lambda = lambdas(ilm)/1000;
     gold=rix_spline(lambda,'gold_palik.txt');
-    
+
     nspp = sqrt(gold^2 * w^2/(gold^2 + w^2));
-    theta0 = asind(real(nspp)/glass);
+    theta_spp = asind(real(nspp)/glass);
+    
+    my_main_flat_gold_measurement;
+    
+    
+    
+    [Ci,Ii] = min(all_records(2:end, 2));
+    theta0 = all_records(Ii + 1, 1)
     
     clearvars -except ilm lambdas theta0 lambda nspp FOM CX CI betas thetas glass w
-    my_main_sphere_measurement;
     
+    my_main_sphere_measurement;
 
     betas(ilm) = 2/lambda*pi*nspp*1E9;
     thetas(ilm) = theta0;
@@ -47,8 +55,8 @@ legend
 saveas(gcf,['saved_figures/FOM_wavelength' '_r_' num2str(r*1e3) '_h_' num2str(h*1e3) '_N' num2str(N_X) '.png'])
 saveas(gcf,['saved_figures/FOM_wavelength' '_r_' num2str(r*1e3) '_h_' num2str(h*1e3) '_N' num2str(N_X) '.fig'])
 
-save('saved_data/fom.mat', 'fom');
+save(['saved_data/fom' '_r_' num2str(r*1e3) '_h_' num2str(h*1e3) '_N' num2str(N_X) '.mat'], 'fom');
 
-save('saved_data/CX.mat', 'CX');
+save(['saved_data/CX' '_r_' num2str(r*1e3) '_h_' num2str(h*1e3) '_N' num2str(N_X) '.mat'], 'CX');
 
-save('saved_data/CI.mat', 'CI');
+save(['saved_data/CI' '_r_' num2str(r*1e3) '_h_' num2str(h*1e3) '_N' num2str(N_X) '.mat'], 'CI');

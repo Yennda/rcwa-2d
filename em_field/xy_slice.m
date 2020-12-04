@@ -76,6 +76,7 @@ figure
 set(gcf, 'Renderer', 'zbuffer');
 axes('FontSize',13)
 surf(1E6.*y_points,1E6.*x_points,profile_mode,'LineWidth',1);
+colormap gray
 
 shading flat
 axis([y_point_b y_point_e x_point_b x_point_e]);
@@ -91,4 +92,6 @@ daspect([1 1 1])
 saveas(gcf,['saved_particles/NP' '_r_' num2str(r*1e3) '_h_' num2str(h*1e3) '_lm_' num2str(lambda*1e3) '_th_' num2str(theta0) '_N' num2str(N_X) '.png'])
 saveas(gcf,['saved_particles/NP' '_r_' num2str(r*1e3) '_h_' num2str(h*1e3) '_lm_' num2str(lambda*1e3) '_th_' num2str(theta0) '_N' num2str(N_X) '.fig'])
 
+
+save(['saved_particles/NP' '_r_' num2str(r*1e3) '_h_' num2str(h*1e3) '_lm_' num2str(lambda*1e3) '_th_' num2str(theta0) '_N' num2str(N_X)  '.mat'], 'profile_mode');
 view([0 90])

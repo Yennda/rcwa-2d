@@ -18,6 +18,8 @@ switch measurement
         fprintf(1,'order  [%5.2f,%6.2f] R_0=%12.10f T_0=%12.10f sumR=%12.10f sumT=%12.10f R_90=%12.10f T_90=%12.10f sumR=%12.10f sumT=%12.10f R_psi=%12.10f T_psi=%12.10f sumR=%12.10f sumT=%12.10f\n', record);
     case 1
         fid = fopen('data1.txt', 'wt');
+        
+        
         for cycle=minimum_N_X_N_Y:step:maximum_N_X_N_Y            
             N_X=cycle;
             N_Y=N_X;
@@ -32,6 +34,8 @@ switch measurement
             
             position_diff_efficiency=1+(diffraction_efficiency_order(2)+N_Y)+(2*N_Y+1)*(diffraction_efficiency_order(1)+N_X);
             record=[cycle toc(time2) D_R_0(position_diff_efficiency) D_T_0(position_diff_efficiency) sum(D_R_0) sum(D_T_0) D_R_90(position_diff_efficiency) D_T_90(position_diff_efficiency) sum(D_R_90) sum(D_T_90) D_R(position_diff_efficiency) D_T(position_diff_efficiency) sum(D_R) sum(D_T)];
+            
+            
             fprintf(fid, '%0f %0f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f\n', record);
             fprintf('%0f %0f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f\n', record);
         end
@@ -45,6 +49,7 @@ switch measurement
         record_90=[];
         record_psi=[];
         fid = fopen('data2.txt', 'wt');
+        all_records(1, :) = [0 0];
         for cycle=minimum_wavelength:step:maximum_wavelength            
             lambda=cycle;
             if use_dispersion==1
@@ -59,6 +64,7 @@ switch measurement
             
             position_diff_efficiency=1+(diffraction_efficiency_order(2)+N_Y)+(2*N_Y+1)*(diffraction_efficiency_order(1)+N_X);
             record=[cycle D_R_0(position_diff_efficiency) D_T_0(position_diff_efficiency) sum(D_R_0) sum(D_T_0) D_R_90(position_diff_efficiency) D_T_90(position_diff_efficiency) sum(D_R_90) sum(D_T_90) D_R(position_diff_efficiency) D_T(position_diff_efficiency) sum(D_R) sum(D_T)];            fprintf(fid, '%0f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f\n', record);
+            all_records(end+1, :) = record(1:2);
             fprintf('%0f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f\n', record);
         end
         fclose(fid);
@@ -99,6 +105,7 @@ switch measurement
         record_90=[];
         record_psi=[];
         fid = fopen('data4.txt', 'wt');
+        all_records(1, :) = [0 0];
         for cycle=minimum_angle_theta:step:maximum_angle_theta            
             theta0=cycle;            
             if use_dispersion==1
@@ -112,6 +119,7 @@ switch measurement
             record=[cycle D_R_0(position_diff_efficiency) D_T_0(position_diff_efficiency) sum(D_R_0) sum(D_T_0) D_R_90(position_diff_efficiency) D_T_90(position_diff_efficiency) sum(D_R_90) sum(D_T_90) D_R(position_diff_efficiency) D_T(position_diff_efficiency) sum(D_R) sum(D_T)];
             fprintf(fid, '%0f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f\n', record);
             fprintf('%0f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f %12.10f\n', record);
+            all_records(end+1, :) = record(1:2);        
         end
         fclose(fid);
         

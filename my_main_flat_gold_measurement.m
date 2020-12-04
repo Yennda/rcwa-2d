@@ -7,7 +7,7 @@
 % !!!! Matlab: mex filename.c, Octave: mkoctfile --mex filename.c
 % !!!! currently, there are mex-files for Linux 32/64-bit and Windows 32/64-bit
 
-clear all
+% clear all
 format long;
 time1=tic;
 addpath('lib');
@@ -17,31 +17,21 @@ addpath('mex_files');
 addpath('em_field');
 
 %---------------------------------------------------
-N_X=7; % N_X=20 takes approx. 8 GB of memory
+N_X=12; % N_X=20 takes approx. 8 GB of memory
 N_Y=N_X;
-symmetry = 1;
-symmetry_switch = 3;
 use_fftw=2;
 %---------------------------------------------------
-% Lambda_x=1; %  [um] only for grating=1 and 2
-% Lambda_y= 2* Lambda_x; %  [um] only for grating=1 and 2
+Lambda_x=1; %  [um] only for grating 1 and 2
+Lambda_y=Lambda_x; %  [um] only for grating 1 and 2
 n_1=1.55; % superstrate
 n_3=1.33; % substrate
 mu=1;
 %---------------------------------------------------
 use_dispersion=1; % 1-yes, 2-no, see file setup_dispersion.m setup_dispersion.m
-lambda=0.655; % [um]
-theta0=70; % incident angle [degree], if theta=0 -> theta0+1E-10
-
-% lambda=0.765; % [um]
+% lambda=0.655; % [um]
 % theta0=70; % incident angle [degree], if theta=0 -> theta0+1E-10
-
 phi0=0; % conical angle [degree]
-psi0=0;  % polarization angle [degree], 0-TM polarization, 90-TE polarization
-
-calculate_field=1; % 1-yes, 2-no, !! field is calculated for the polarization angle psi0
-view_field_slice=1; % xy_slice, xz_slice, yz_slice
-% open xy_slice.m or xz_slice.m or yz_slice.m
+psi0=90;  % polarization angle [degree], 0-TM polarization, 90-TE polarization
 
 % switch grating
 % 0 - grating from file, Li's factorization rules, there is a possibility
@@ -55,7 +45,7 @@ grating=0;
 switch grating
     case 0
         setup_dispersion;
-        open_grating_file='flat_gold_sphere.m';
+        open_grating_file='flat_gold.m';
         optimalization_grating_0=1; % 1-yes, 2-no
     case 1 % eliptic cylinder, rectangular grating
         number_of_layers=1;
@@ -87,29 +77,34 @@ parameter_alpha=0.5; % in range (0-1) alpha=1 classic calculation (without facto
 % 5 --- dependence of the diffraction efficiencies on the angle psi
 % 6 --- dependence of the diffraction efficiencies on the conical angle phi
 
-measurement=0;
+measurement=4;
 
 diffraction_efficiency_order=[0,0]; 
-save_m=0; % 1 --- yes, 2 ---no
+save_m=1; % 1 --- yes, 2 ---no
 save_m_as='test';
 
 switch measurement
     case 0 % diffraction_efficiencies       
     case 1
-        minimum_N_X_N_Y=1; %
-        maximum_N_X_N_Y=15; % max. 20 (it takes 8 GB)
-        step=1;
+        minimum_N_X_N_Y=6; %
+        maximum_N_X_N_Y=30; % max. 20 (it takes 8 GB)
+        step=6;
     case 2 
-        minimum_wavelength=0.632; % [um]
-        maximum_wavelength=0.633; % [um]
-        step=0.0005;   
+        minimum_wavelength=0.5; % [um]
+        maximum_wavelength=0.8; % [um]
+        step=0.01;   
     case 3 % 
         minimum_thickness=0.4; % [um]
         maximum_thickness=1.0; % [um]
         step=0.02;
     case 4
-        minimum_angle_theta=0; % [degree]
-        maximum_angle_theta=89; % [degree]
+        minimum_angle_theta = theta_spp-10; % [degree]
+        
+        if theta_spp+10 > 90
+            maximum_angle_theta = 90;
+        else
+            maximum_angle_theta=theta_spp+10; % [degree]
+        end
         step=0.5;
     case 5
         minimum_angle_psi=0; % [degree] 
